@@ -1,0 +1,19 @@
+USE [biblioteca]
+GO
+
+
+
+DELETE dbo.Usuarios
+DBCC CHECKIDENT (Usuarios, RESEED, 1)
+
+DELETE dbo.Folios
+DBCC CHECKIDENT (Folios, RESEED, 1)
+
+TRUNCATE TABLE Usuarios
+TRUNCATE TABLE Folios
+
+TRUNCATE TABLE Generos
+TRUNCATE TABLE Libros
+
+TRUNCATE TABLE Usuarios
+TRUNCATE TABLE Pasillos
