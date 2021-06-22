@@ -36,11 +36,6 @@
             this.txtFolioB = new MaterialSkin.Controls.MaterialTextBox();
             this.lblNombre = new MaterialSkin.Controls.MaterialLabel();
             this.dtvPrestamo = new System.Windows.Forms.DataGridView();
-            this.librosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bibliotecaDataSet3 = new Biblioteca.bibliotecaDataSet3();
-            this.librosTableAdapter = new Biblioteca.bibliotecaDataSet3TableAdapters.LibrosTableAdapter();
-            this.bibliotecaDataSet1 = new Biblioteca.bibliotecaDataSet();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.claveGeneroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clavePasilloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,12 +44,19 @@
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPublicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.librosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bibliotecaDataSet3 = new Biblioteca.bibliotecaDataSet3();
+            this.librosTableAdapter = new Biblioteca.bibliotecaDataSet3TableAdapters.LibrosTableAdapter();
+            this.bibliotecaDataSet1 = new Biblioteca.bibliotecaDataSet();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.btnBuscar = new MaterialSkin.Controls.MaterialButton();
             this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtvPrestamo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -73,7 +75,7 @@
             // 
             this.txtFolioB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFolioB.Depth = 0;
-            this.txtFolioB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFolioB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtFolioB.LeadingIcon = null;
             this.txtFolioB.Location = new System.Drawing.Point(254, 111);
             this.txtFolioB.MaxLength = 50;
@@ -149,38 +151,6 @@
             this.dtvPrestamo.Size = new System.Drawing.Size(874, 237);
             this.dtvPrestamo.TabIndex = 4;
             this.dtvPrestamo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtvPrestamo_CellContentClick);
-            // 
-            // librosBindingSource
-            // 
-            this.librosBindingSource.DataMember = "Libros";
-            this.librosBindingSource.DataSource = this.bibliotecaDataSet3;
-            // 
-            // bibliotecaDataSet3
-            // 
-            this.bibliotecaDataSet3.DataSetName = "bibliotecaDataSet3";
-            this.bibliotecaDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // librosTableAdapter
-            // 
-            this.librosTableAdapter.ClearBeforeFill = true;
-            // 
-            // bibliotecaDataSet1
-            // 
-            this.bibliotecaDataSet1.DataSetName = "bibliotecaDataSet";
-            this.bibliotecaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel2.Location = new System.Drawing.Point(23, 223);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(164, 24);
-            this.materialLabel2.TabIndex = 6;
-            this.materialLabel2.Text = "Libros Disponibles";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -262,6 +232,38 @@
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Width = 70;
             // 
+            // librosBindingSource
+            // 
+            this.librosBindingSource.DataMember = "Libros";
+            this.librosBindingSource.DataSource = this.bibliotecaDataSet3;
+            // 
+            // bibliotecaDataSet3
+            // 
+            this.bibliotecaDataSet3.DataSetName = "bibliotecaDataSet3";
+            this.bibliotecaDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // librosTableAdapter
+            // 
+            this.librosTableAdapter.ClearBeforeFill = true;
+            // 
+            // bibliotecaDataSet1
+            // 
+            this.bibliotecaDataSet1.DataSetName = "bibliotecaDataSet";
+            this.bibliotecaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel2.Location = new System.Drawing.Point(23, 223);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(164, 24);
+            this.materialLabel2.TabIndex = 6;
+            this.materialLabel2.Text = "Libros Disponibles";
+            // 
             // btnBuscar
             // 
             this.btnBuscar.AutoSize = false;
@@ -300,6 +302,10 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +326,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +353,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPublicacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

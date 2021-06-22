@@ -30,18 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevolucion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.btnBuscar = new MaterialSkin.Controls.MaterialButton();
             this.dtvDevolver = new System.Windows.Forms.DataGridView();
-            this.lblNombre = new MaterialSkin.Controls.MaterialLabel();
-            this.txtFolioB = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
-            this.bibliotecaDataSet3 = new Biblioteca.bibliotecaDataSet3();
-            this.librosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.librosTableAdapter = new Biblioteca.bibliotecaDataSet3TableAdapters.LibrosTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.claveGeneroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clavePasilloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,9 +43,18 @@
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPublicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.librosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bibliotecaDataSet3 = new Biblioteca.bibliotecaDataSet3();
+            this.lblNombre = new MaterialSkin.Controls.MaterialLabel();
+            this.txtFolioB = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnAceptar = new MaterialSkin.Controls.MaterialButton();
+            this.librosTableAdapter = new Biblioteca.bibliotecaDataSet3TableAdapters.LibrosTableAdapter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtvDevolver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel2
@@ -94,14 +96,14 @@
             this.dtvDevolver.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dtvDevolver.BackgroundColor = System.Drawing.Color.White;
             this.dtvDevolver.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtvDevolver.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtvDevolver.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtvDevolver.ColumnHeadersHeight = 25;
             this.dtvDevolver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtvDevolver.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -119,14 +121,14 @@
             this.dtvDevolver.MultiSelect = false;
             this.dtvDevolver.Name = "dtvDevolver";
             this.dtvDevolver.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtvDevolver.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtvDevolver.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtvDevolver.RowHeadersWidth = 32;
             this.dtvDevolver.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             this.dtvDevolver.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
@@ -138,79 +140,6 @@
             this.dtvDevolver.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvDevolver.Size = new System.Drawing.Size(874, 237);
             this.dtvDevolver.TabIndex = 11;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Depth = 0;
-            this.lblNombre.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNombre.Location = new System.Drawing.Point(252, 192);
-            this.lblNombre.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(1, 0);
-            this.lblNombre.TabIndex = 10;
-            // 
-            // txtFolioB
-            // 
-            this.txtFolioB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFolioB.Depth = 0;
-            this.txtFolioB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtFolioB.LeadingIcon = null;
-            this.txtFolioB.Location = new System.Drawing.Point(252, 106);
-            this.txtFolioB.MaxLength = 50;
-            this.txtFolioB.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtFolioB.Multiline = false;
-            this.txtFolioB.Name = "txtFolioB";
-            this.txtFolioB.Size = new System.Drawing.Size(429, 50);
-            this.txtFolioB.TabIndex = 9;
-            this.txtFolioB.Text = "";
-            this.txtFolioB.TrailingIcon = null;
-            this.txtFolioB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFolioB_KeyPress);
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(177, 127);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(44, 19);
-            this.materialLabel1.TabIndex = 8;
-            this.materialLabel1.Text = "Folio: ";
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAceptar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAceptar.Depth = 0;
-            this.btnAceptar.HighEmphasis = true;
-            this.btnAceptar.Icon = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Icon")));
-            this.btnAceptar.Location = new System.Drawing.Point(428, 507);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAceptar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(114, 36);
-            this.btnAceptar.TabIndex = 7;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAceptar.UseAccentColor = false;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
-            // 
-            // bibliotecaDataSet3
-            // 
-            this.bibliotecaDataSet3.DataSetName = "bibliotecaDataSet3";
-            this.bibliotecaDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // librosBindingSource
-            // 
-            this.librosBindingSource.DataMember = "Libros";
-            this.librosBindingSource.DataSource = this.bibliotecaDataSet3;
-            // 
-            // librosTableAdapter
-            // 
-            this.librosTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -284,6 +213,83 @@
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Width = 70;
             // 
+            // librosBindingSource
+            // 
+            this.librosBindingSource.DataMember = "Libros";
+            this.librosBindingSource.DataSource = this.bibliotecaDataSet3;
+            // 
+            // bibliotecaDataSet3
+            // 
+            this.bibliotecaDataSet3.DataSetName = "bibliotecaDataSet3";
+            this.bibliotecaDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Depth = 0;
+            this.lblNombre.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNombre.Location = new System.Drawing.Point(252, 192);
+            this.lblNombre.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(1, 0);
+            this.lblNombre.TabIndex = 10;
+            // 
+            // txtFolioB
+            // 
+            this.txtFolioB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFolioB.Depth = 0;
+            this.txtFolioB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFolioB.LeadingIcon = null;
+            this.txtFolioB.Location = new System.Drawing.Point(252, 106);
+            this.txtFolioB.MaxLength = 50;
+            this.txtFolioB.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtFolioB.Multiline = false;
+            this.txtFolioB.Name = "txtFolioB";
+            this.txtFolioB.Size = new System.Drawing.Size(429, 50);
+            this.txtFolioB.TabIndex = 9;
+            this.txtFolioB.Text = "";
+            this.txtFolioB.TrailingIcon = null;
+            this.txtFolioB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFolioB_KeyPress);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(177, 127);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(44, 19);
+            this.materialLabel1.TabIndex = 8;
+            this.materialLabel1.Text = "Folio: ";
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAceptar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAceptar.Depth = 0;
+            this.btnAceptar.HighEmphasis = true;
+            this.btnAceptar.Icon = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Icon")));
+            this.btnAceptar.Location = new System.Drawing.Point(428, 507);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAceptar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(114, 36);
+            this.btnAceptar.TabIndex = 7;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAceptar.UseAccentColor = false;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            // 
+            // librosTableAdapter
+            // 
+            this.librosTableAdapter.ClearBeforeFill = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmDevolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,8 +307,9 @@
             this.Text = "Devolver Libro";
             this.Load += new System.EventHandler(this.FrmDevolucion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtvDevolver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +335,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPublicacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -37,7 +37,6 @@ namespace Biblioteca.Presentation
         private void FrmDevolucion_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'bibliotecaDataSet3.Libros' Puede moverla o quitarla según sea necesario.
-            //this.librosTableAdapter.Fill(this.bibliotecaDataSet3.Libros);
             this.librosTableAdapter.FillByPrestamo(this.bibliotecaDataSet3.Libros);
         }
 
@@ -67,12 +66,11 @@ namespace Biblioteca.Presentation
             }
 
         }
-
         #endregion
-
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
+            borrarErrorMsj();
             if (bandera == true && txtFolioB.Text != null) //lo encontro
             {
                 //si hay folio
@@ -91,8 +89,14 @@ namespace Biblioteca.Presentation
             }
             else if (txtFolioB.Text == "")
             { //Si no hay folio
-                MessageBox.Show("Proporcione folio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                errorProvider1.SetError(txtFolioB, "Ingrese folio");
             }
+        }
+
+        private void borrarErrorMsj()
+        {
+            errorProvider1.SetError(txtFolioB, "");
+
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -141,8 +145,10 @@ namespace Biblioteca.Presentation
             else
             {
                 e.Handled = true;
-                MessageBox.Show("Solo se admiten datos numéricos", "Validación de números", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+                errorProvider1.SetError(txtFolioB, "Solo se admiten datos numéricos");
+                //  MessageBox.Show("Solo se admiten datos numéricos", "Validación de números", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
     }
 }

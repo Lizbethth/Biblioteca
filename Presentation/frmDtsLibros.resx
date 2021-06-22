@@ -117,8 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnGuardar.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAM9JREFUSEvt
+        1T0KwlAQBOCcT/EOWngGWysbL+dPagvREwhaiOgMOPBYMrDvNVpk4CtedjcbCWo3pjZTOMG70gpSOcPQ
+        DTJSS9Q8q7CFF6SWtCygDTyBs2uwiQt0dsol/CS6bhMHdXbKBWW/TRzU2SlvXvbbuMGs/12whB5ucPye
+        Yw81LziAarSH2EOq26ghDj5ANbpD7CHVbdQQB/nEqtEOYg+pbqOGOLgAvgN+W/kO5hB7qHlB1u8XXEBN
+        rfiTb8M/nCsMDWbwAScwJpuu+wAkltB7XY2RZgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="generosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>171, 17</value>
+  </metadata>
+  <metadata name="generosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>171, 17</value>
+  </metadata>
+  <metadata name="bibliotecaDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="bibliotecaDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -131,5 +147,56 @@
   </metadata>
   <metadata name="pasillosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>188, 56</value>
+  </metadata>
+  <metadata name="estadosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <data name="btnNoDisponible.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAXtJREFUSEvd
+        1bsuBkEYxvF1liBR0LgDh9ugIhGHkFBLREiUCho6hEugkCi4EaVDHOJwBwokQoH/M3ZizTc7s7sdT/JL
+        vjnsvPl2Z2eTf58WzOIYd3hM6fcRZqA5lTKJB3xG3GMchdOAXdgFzrCMfnSlBtK+c9h5O9C10WzBXrSK
+        0EUaW8Q7NH8TwYzCLi6n6EYsQ3jDB0bU4UszbqGFV6DFyxSZh+bfoEkdbqZhF6yHFi1TRLfrApqvDVKT
+        Q2hwybS+U7aIHrzmHpiWE/01Dfaa1k/KFNHu0rxL03LyDA22m9bvdOIEGr9GD3zpgOY8mZaTF2iwzbRq
+        U+SfBAvk3aJstKhevLwiehk1dmVaTnwP2ZdQkeBDdrdpKL4ijdDDVZ93m2ZftDl1ROIW2Uh/575oij0q
+        9NoPqiOSbBHRUTGMYLZhiywgdtitwRZYRzS6yHdc96E1pd3iHte6RXUonAkU/eCMoVL0OdTu2ocOsteU
+        fu9hCpU/mX8hSfIF8XmPxqBEiH8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>514, 17</value>
+  </metadata>
+  <metadata name="pasillosBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>356, 95</value>
+  </metadata>
+  <metadata name="bibliotecaDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>353, 56</value>
+  </metadata>
+  <metadata name="bibliotecaDataSet3BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>507, 56</value>
+  </metadata>
+  <metadata name="bibliotecaDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>353, 56</value>
+  </metadata>
+  <metadata name="bibliotecaDataSet4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>740, 56</value>
+  </metadata>
+  <metadata name="estadosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="bibliotecaDataSet4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>740, 56</value>
+  </metadata>
+  <metadata name="estadosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>189, 95</value>
+  </metadata>
+  <metadata name="pasillosBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>356, 95</value>
+  </metadata>
+  <metadata name="bibliotecaDataSet3BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>507, 56</value>
+  </metadata>
+  <metadata name="pasillosTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>533, 95</value>
   </metadata>
 </root>

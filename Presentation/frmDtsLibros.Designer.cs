@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDtsLibros));
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
@@ -44,13 +45,29 @@
             this.bibliotecaDataSet2 = new Biblioteca.bibliotecaDataSet2();
             this.generosTableAdapter = new Biblioteca.bibliotecaDataSet2TableAdapters.GenerosTableAdapter();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.cmbPasillo = new MaterialSkin.Controls.MaterialComboBox();
+            this.cmbPas = new MaterialSkin.Controls.MaterialComboBox();
             this.pasillosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pasillosTableAdapter = new Biblioteca.bibliotecaDataSet2TableAdapters.PasillosTableAdapter();
             this.cmbEstado = new MaterialSkin.Controls.MaterialComboBox();
+            this.btnNoDisponible = new MaterialSkin.Controls.MaterialButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bibliotecaDataSet3 = new Biblioteca.bibliotecaDataSet3();
+            this.bibliotecaDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bibliotecaDataSet4 = new Biblioteca.bibliotecaDataSet4();
+            this.estadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estadosTableAdapter = new Biblioteca.bibliotecaDataSet4TableAdapters.EstadosTableAdapter();
+            this.cmbprueba = new MaterialSkin.Controls.MaterialComboBox();
+            this.pasillosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pasillosTableAdapter1 = new Biblioteca.bibliotecaDataSet3TableAdapters.PasillosTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.generosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasillosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pasillosBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -91,6 +108,7 @@
             // 
             // txtAutor
             // 
+            this.txtAutor.AcceptsTab = true;
             this.txtAutor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAutor.Depth = 0;
             this.txtAutor.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -108,6 +126,7 @@
             // 
             // txtTitulo
             // 
+            this.txtTitulo.AcceptsTab = true;
             this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTitulo.Depth = 0;
             this.txtTitulo.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -129,12 +148,12 @@
             this.btnGuardar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnGuardar.Depth = 0;
             this.btnGuardar.HighEmphasis = true;
-            this.btnGuardar.Icon = null;
+            this.btnGuardar.Icon = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Icon")));
             this.btnGuardar.Location = new System.Drawing.Point(275, 372);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(88, 36);
+            this.btnGuardar.Size = new System.Drawing.Size(116, 36);
             this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -238,37 +257,37 @@
             this.materialLabel7.TabIndex = 16;
             this.materialLabel7.Text = "Pasillo:";
             // 
-            // cmbPasillo
+            // cmbPas
             // 
-            this.cmbPasillo.AutoResize = false;
-            this.cmbPasillo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmbPasillo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pasillosBindingSource, "ClavePasillo", true));
-            this.cmbPasillo.DataSource = this.pasillosBindingSource;
-            this.cmbPasillo.Depth = 0;
-            this.cmbPasillo.DisplayMember = "ClavePasillo";
-            this.cmbPasillo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbPasillo.DropDownHeight = 174;
-            this.cmbPasillo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPasillo.DropDownWidth = 121;
-            this.cmbPasillo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cmbPasillo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cmbPasillo.FormattingEnabled = true;
-            this.cmbPasillo.IntegralHeight = false;
-            this.cmbPasillo.ItemHeight = 43;
-            this.cmbPasillo.Location = new System.Drawing.Point(397, 233);
-            this.cmbPasillo.MaxDropDownItems = 4;
-            this.cmbPasillo.MouseState = MaterialSkin.MouseState.OUT;
-            this.cmbPasillo.Name = "cmbPasillo";
-            this.cmbPasillo.Size = new System.Drawing.Size(190, 49);
-            this.cmbPasillo.StartIndex = 0;
-            this.cmbPasillo.TabIndex = 17;
-            this.cmbPasillo.ValueMember = "ClavePasillo";
-            this.cmbPasillo.SelectedIndexChanged += new System.EventHandler(this.MaterialComboBox2_SelectedIndexChanged_1);
+            this.cmbPas.AutoResize = false;
+            this.cmbPas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbPas.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pasillosBindingSource, "ClavePasillo", true));
+            this.cmbPas.DataSource = this.pasillosBindingSource;
+            this.cmbPas.Depth = 0;
+            this.cmbPas.DisplayMember = "ClavePasillo";
+            this.cmbPas.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbPas.DropDownHeight = 174;
+            this.cmbPas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPas.DropDownWidth = 121;
+            this.cmbPas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbPas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbPas.FormattingEnabled = true;
+            this.cmbPas.IntegralHeight = false;
+            this.cmbPas.ItemHeight = 43;
+            this.cmbPas.Location = new System.Drawing.Point(397, 233);
+            this.cmbPas.MaxDropDownItems = 4;
+            this.cmbPas.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbPas.Name = "cmbPas";
+            this.cmbPas.Size = new System.Drawing.Size(190, 49);
+            this.cmbPas.StartIndex = 0;
+            this.cmbPas.TabIndex = 17;
+            this.cmbPas.ValueMember = "ClavePasillo";
             // 
             // pasillosBindingSource
             // 
             this.pasillosBindingSource.DataMember = "Pasillos";
             this.pasillosBindingSource.DataSource = this.bibliotecaDataSet2;
+            this.pasillosBindingSource.CurrentChanged += new System.EventHandler(this.PasillosBindingSource_CurrentChanged);
             // 
             // pasillosTableAdapter
             // 
@@ -279,7 +298,9 @@
             this.cmbEstado.AutoResize = false;
             this.cmbEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cmbEstado.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pasillosBindingSource, "ClavePasillo", true));
+            this.cmbEstado.DataSource = this.estadosBindingSource;
             this.cmbEstado.Depth = 0;
+            this.cmbEstado.DisplayMember = "Estado";
             this.cmbEstado.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbEstado.DropDownHeight = 174;
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -289,10 +310,6 @@
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.IntegralHeight = false;
             this.cmbEstado.ItemHeight = 43;
-            this.cmbEstado.Items.AddRange(new object[] {
-            "Disponible",
-            "En préstamo",
-            "No disponible"});
             this.cmbEstado.Location = new System.Drawing.Point(397, 295);
             this.cmbEstado.MaxDropDownItems = 4;
             this.cmbEstado.MouseState = MaterialSkin.MouseState.OUT;
@@ -300,14 +317,101 @@
             this.cmbEstado.Size = new System.Drawing.Size(190, 49);
             this.cmbEstado.StartIndex = 0;
             this.cmbEstado.TabIndex = 18;
+            this.cmbEstado.ValueMember = "Estado";
+            // 
+            // btnNoDisponible
+            // 
+            this.btnNoDisponible.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnNoDisponible.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnNoDisponible.Depth = 0;
+            this.btnNoDisponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNoDisponible.HighEmphasis = true;
+            this.btnNoDisponible.Icon = ((System.Drawing.Image)(resources.GetObject("btnNoDisponible.Icon")));
+            this.btnNoDisponible.Location = new System.Drawing.Point(398, 308);
+            this.btnNoDisponible.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnNoDisponible.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnNoDisponible.Name = "btnNoDisponible";
+            this.btnNoDisponible.Size = new System.Drawing.Size(156, 36);
+            this.btnNoDisponible.TabIndex = 19;
+            this.btnNoDisponible.Text = "No disponible";
+            this.btnNoDisponible.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNoDisponible.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnNoDisponible.UseAccentColor = false;
+            this.btnNoDisponible.UseVisualStyleBackColor = true;
+            this.btnNoDisponible.Visible = false;
+            this.btnNoDisponible.Click += new System.EventHandler(this.BtnNoDisponible_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // bibliotecaDataSet3
+            // 
+            this.bibliotecaDataSet3.DataSetName = "bibliotecaDataSet3";
+            this.bibliotecaDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bibliotecaDataSet3BindingSource
+            // 
+            this.bibliotecaDataSet3BindingSource.DataSource = this.bibliotecaDataSet3;
+            this.bibliotecaDataSet3BindingSource.Position = 0;
+            // 
+            // bibliotecaDataSet4
+            // 
+            this.bibliotecaDataSet4.DataSetName = "bibliotecaDataSet4";
+            this.bibliotecaDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // estadosBindingSource
+            // 
+            this.estadosBindingSource.DataMember = "Estados";
+            this.estadosBindingSource.DataSource = this.bibliotecaDataSet4;
+            // 
+            // estadosTableAdapter
+            // 
+            this.estadosTableAdapter.ClearBeforeFill = true;
+            // 
+            // cmbprueba
+            // 
+            this.cmbprueba.AutoResize = false;
+            this.cmbprueba.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbprueba.DataSource = this.pasillosBindingSource1;
+            this.cmbprueba.Depth = 0;
+            this.cmbprueba.DisplayMember = "ClavePasillo";
+            this.cmbprueba.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbprueba.DropDownHeight = 174;
+            this.cmbprueba.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbprueba.DropDownWidth = 121;
+            this.cmbprueba.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbprueba.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbprueba.FormattingEnabled = true;
+            this.cmbprueba.IntegralHeight = false;
+            this.cmbprueba.ItemHeight = 43;
+            this.cmbprueba.Location = new System.Drawing.Point(407, 372);
+            this.cmbprueba.MaxDropDownItems = 4;
+            this.cmbprueba.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbprueba.Name = "cmbprueba";
+            this.cmbprueba.Size = new System.Drawing.Size(121, 49);
+            this.cmbprueba.StartIndex = 0;
+            this.cmbprueba.TabIndex = 20;
+            this.cmbprueba.ValueMember = "ClavePasillo";
+            // 
+            // pasillosBindingSource1
+            // 
+            this.pasillosBindingSource1.DataMember = "Pasillos";
+            this.pasillosBindingSource1.DataSource = this.bibliotecaDataSet3BindingSource;
+            // 
+            // pasillosTableAdapter1
+            // 
+            this.pasillosTableAdapter1.ClearBeforeFill = true;
             // 
             // frmDtsLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 450);
+            this.Controls.Add(this.cmbprueba);
             this.Controls.Add(this.cmbEstado);
-            this.Controls.Add(this.cmbPasillo);
+            this.Controls.Add(this.btnNoDisponible);
+            this.Controls.Add(this.cmbPas);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.cmbGeneros);
             this.Controls.Add(this.materialLabel2);
@@ -327,6 +431,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.generosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasillosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pasillosBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,9 +459,19 @@
         private System.Windows.Forms.BindingSource generosBindingSource;
         private bibliotecaDataSet2TableAdapters.GenerosTableAdapter generosTableAdapter;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
-        private MaterialSkin.Controls.MaterialComboBox cmbPasillo;
+        private MaterialSkin.Controls.MaterialComboBox cmbPas;
         private System.Windows.Forms.BindingSource pasillosBindingSource;
         private bibliotecaDataSet2TableAdapters.PasillosTableAdapter pasillosTableAdapter;
         private MaterialSkin.Controls.MaterialComboBox cmbEstado;
+        private MaterialSkin.Controls.MaterialButton btnNoDisponible;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.BindingSource bibliotecaDataSet3BindingSource;
+        private bibliotecaDataSet3 bibliotecaDataSet3;
+        private bibliotecaDataSet4 bibliotecaDataSet4;
+        private System.Windows.Forms.BindingSource estadosBindingSource;
+        private bibliotecaDataSet4TableAdapters.EstadosTableAdapter estadosTableAdapter;
+        private MaterialSkin.Controls.MaterialComboBox cmbprueba;
+        private System.Windows.Forms.BindingSource pasillosBindingSource1;
+        private bibliotecaDataSet3TableAdapters.PasillosTableAdapter pasillosTableAdapter1;
     }
 }

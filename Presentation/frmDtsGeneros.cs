@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using Biblioteca.Models;
 using System.Data.Entity;
-
+using System.Globalization;
 
 namespace Biblioteca.Presentation
 {
@@ -45,28 +45,31 @@ namespace Biblioteca.Presentation
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            using (bibliotecaEntities db = new bibliotecaEntities())
+            borrarErrorMsj();
+            if (validarCampos())
             {
-                if (id == null)
+                using (bibliotecaEntities db = new bibliotecaEntities())
                 {
-                    Generos g = new Generos
+                    if (id == null)
                     {
-                        
-                        Genero = txtGenero.Text,
-                        Clave = txtClave.Text
-                    };
-                    db.Generos.Add(g);
-                }
+                        Generos g = new Generos
+                        {
+                            Genero = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtGenero.Text),
+                            Clave = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtClave.Text)
+                        };
+                        db.Generos.Add(g);
+                    }
 
-                else
-                {
-                    var gen = db.Generos.Find(id);
-                    gen.Genero = txtGenero.Text;
-                    gen.Clave = txtClave.Text;
-                    db.Entry(gen).State = EntityState.Modified;
+                    else
+                    {
+                        var gen = db.Generos.Find(id);
+                        gen.Genero = txtGenero.Text;
+                        gen.Clave = txtClave.Text;
+                        db.Entry(gen).State = EntityState.Modified;
+                    }
+                    db.SaveChanges();
+                    this.Close();
                 }
-                db.SaveChanges();
-                this.Close();
             }
         }
 
@@ -77,10 +80,52 @@ namespace Biblioteca.Presentation
                 g = db.Generos.Find(id);
                 txtGenero.Text = g.Genero;
                 txtClave.Text = g.Clave;
-
             }
-
         }
 
+
+        private bool validarCampos()
+        {
+            bool ok = true;
+            if (txtGenero.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtGenero, "Ingresar género");
+            }
+            if (txtClave.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtClave, "Ingresar clave");
+            }
+            return ok;
+        }
+
+        private void borrarErrorMsj()
+        {
+            errorProvider1.SetError(txtGenero, "");
+            errorProvider1.SetError(txtClave, "");
+        }
+
+        private void txtCaracter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+   if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+     if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
     }
 }

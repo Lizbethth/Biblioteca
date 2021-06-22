@@ -17,8 +17,6 @@ namespace Biblioteca.Presentation
         Pasillos p = null;
         public int? id;
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
-
-
         public frmDtsPasillos(int? id = null)
         {
             InitializeComponent();
@@ -60,31 +58,78 @@ namespace Biblioteca.Presentation
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            using (bibliotecaEntities db = new bibliotecaEntities())
+            borrarErrorMsj();
+            if (validarCampos())
             {
-
-                if (id == null)
+                using (bibliotecaEntities db = new bibliotecaEntities())
                 {
-                    Pasillos p = new Pasillos
+                    var cv = db.Pasillos.Any(x => x.ClavePasillo == (cbLetra.SelectedItem.ToString() + txtNum.Text));
+                    if (id == null)
                     {
-                        ClavePasillo = cbLetra.SelectedItem.ToString() + txtNum.Text,
-                    };
+                        Pasillos p = new Pasillos
+                        {
+                            ClavePasillo = cbLetra.SelectedItem.ToString() + txtNum.Text,
+                        };
+                        if (cv)
+                        {
+                            MessageBox.Show("Este pasillo ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        else
+                        {
+                            db.Pasillos.Add(p);
+                        }
+                        db.SaveChanges();
+                    }
 
-                    db.Pasillos.Add(p);
+                    else
+                    {
+                        var pas = db.Pasillos.Find(id);
+                        pas.ClavePasillo = txtNum.Text;
+                        string letra = cbLetra.SelectedItem.ToString();
+                        string num = txtNum.Text;
+                        pas.ClavePasillo = letra + num;
+                        db.Entry(pas).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+
+                    this.Close();
                 }
+            }
 
-                else
-                {
-                    var pas = db.Pasillos.Find(id);
-                    pas.ClavePasillo = txtNum.Text;
+        }
 
-                    string letra = cbLetra.SelectedItem.ToString();
-                    string num = txtNum.Text;
-                    pas.ClavePasillo = letra + num;
-                    db.Entry(pas).State = EntityState.Modified;
-                }
-                db.SaveChanges();
-                this.Close();
+        private bool validarCampos()
+        {
+            bool ok = true;
+            if (txtNum.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtNum, "Ingresar número");
+            }
+            return ok;
+        }
+
+        private void borrarErrorMsj()
+        {
+            errorProvider1.SetError(txtNum, "");
+        }
+
+        private void txtCodigoFabricante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Para obligar a que sólo se introduzcan números
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+              if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                //el resto de teclas pulsadas se desactivan
+                e.Handled = true;
             }
         }
     }

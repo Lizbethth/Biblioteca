@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="bibliotecaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Folios">
           <Key>
             <PropertyRef Name="Id" />
@@ -75,6 +82,7 @@
           <Property Name="Folio" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="bibliotecaModelStoreContainer">
+          <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Folios" EntityType="Self.Folios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Generos" EntityType="Self.Generos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Libros" EntityType="Self.Libros" Schema="dbo" store:Type="Tables" />
@@ -106,6 +114,7 @@
           <EntitySet Name="sysdiagrams" EntityType="bibliotecaModel.sysdiagrams" />
           <EntitySet Name="Libros" EntityType="bibliotecaModel.Libros" />
           <EntitySet Name="SecuenciasGeneros" EntityType="bibliotecaModel.SecuenciasGeneros" />
+          <EntitySet Name="Estados" EntityType="bibliotecaModel.Estados" />
         </EntityContainer>
         <EntityType Name="Folios">
           <Key>
@@ -164,6 +173,13 @@
           <Property Name="SecuenciaDI" Type="Int32" />
           <Property Name="SecuenciaIN" Type="Int32" />
           <Property Name="SecuenciaSU" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -244,6 +260,14 @@
                 <ScalarProperty Name="SecuenciaCF" ColumnName="SecuenciaCF" />
                 <ScalarProperty Name="SecuenciaDR" ColumnName="SecuenciaDR" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados">
+            <EntityTypeMapping TypeName="bibliotecaModel.Estados">
+              <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

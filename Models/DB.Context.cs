@@ -32,5 +32,6 @@ namespace Biblioteca.Models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Libros> Libros { get; set; }
         public virtual DbSet<SecuenciasGeneros> SecuenciasGeneros { get; set; }
+        public virtual DbSet<Estados> Estados { get; set; }
     }
 }

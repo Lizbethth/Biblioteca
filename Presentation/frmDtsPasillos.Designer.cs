@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDtsPasillos));
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnGuardar = new MaterialSkin.Controls.MaterialButton();
             this.txtNum = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.cbLetra = new MaterialSkin.Controls.MaterialComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -54,12 +58,12 @@
             this.btnGuardar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnGuardar.Depth = 0;
             this.btnGuardar.HighEmphasis = true;
-            this.btnGuardar.Icon = null;
+            this.btnGuardar.Icon = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Icon")));
             this.btnGuardar.Location = new System.Drawing.Point(262, 294);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(88, 36);
+            this.btnGuardar.Size = new System.Drawing.Size(116, 36);
             this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -82,6 +86,7 @@
             this.txtNum.TabIndex = 2;
             this.txtNum.Text = "";
             this.txtNum.TrailingIcon = null;
+            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoFabricante_KeyPress);
             // 
             // materialLabel2
             // 
@@ -143,6 +148,10 @@
             this.cbLetra.StartIndex = 0;
             this.cbLetra.TabIndex = 5;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmDtsPasillos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +166,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pasillo";
             this.Load += new System.EventHandler(this.FrmDtsPasillos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +179,6 @@
         private MaterialSkin.Controls.MaterialTextBox txtNum;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialComboBox cbLetra;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

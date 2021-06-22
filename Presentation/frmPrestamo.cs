@@ -50,7 +50,6 @@ namespace Biblioteca.Presentation
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -58,8 +57,6 @@ namespace Biblioteca.Presentation
             if (txtFolioB.Text != "")
             {
                 int num = Int32.Parse(txtFolioB.Text);
-
-
                 using (bibliotecaEntities db = new bibliotecaEntities())
                 {
                     var folio = db.Usuarios.FirstOrDefault(x => x.Folio.Equals(num));
@@ -99,8 +96,10 @@ namespace Biblioteca.Presentation
             else
             {
                 e.Handled = true;
-                MessageBox.Show("Solo se admiten datos numéricos", "Validación de números", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+                errorProvider1.SetError(txtFolioB, "Solo se admiten datos numéricos");
+                //  MessageBox.Show("Solo se admiten datos numéricos", "Validación de números", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
         #region HELPER
@@ -114,18 +113,14 @@ namespace Biblioteca.Presentation
             {
                 return null;
             }
-
         }
-
         #endregion
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-
+            borrarErrorMsj();
             if (bandera == true && txtFolioB.Text != null) //lo encontro
-            {
-                //si hay folio
-
+            {//si hay folio
                 int? id = getId();
                 if (id != null)
                 {
@@ -136,15 +131,19 @@ namespace Biblioteca.Presentation
                         db.Entry(libro).State = EntityState.Modified;
                         db.SaveChanges();
                         librosTableAdapter.FillByDisponible(bibliotecaDataSet3.Libros);
-
                     }
-
                 }
             }
             else if (txtFolioB.Text == "")
             { //Si no hay folio
-                MessageBox.Show("Proporcione folio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                errorProvider1.SetError(txtFolioB, "Ingrese folio");
             }
+        }
+
+        private void borrarErrorMsj()
+        {
+            errorProvider1.SetError(txtFolioB, "");
+
         }
 
 

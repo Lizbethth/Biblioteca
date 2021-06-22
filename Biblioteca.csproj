@@ -96,6 +96,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bibliotecaDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="bibliotecaDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bibliotecaDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +115,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Estados.cs">
+      <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Folios.cs">
       <DependentUpon>DB.tt</DependentUpon>
@@ -290,6 +298,17 @@
     </None>
     <None Include="bibliotecaDataSet3.xss">
       <DependentUpon>bibliotecaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="bibliotecaDataSet4.xsc">
+      <DependentUpon>bibliotecaDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="bibliotecaDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bibliotecaDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bibliotecaDataSet4.xss">
+      <DependentUpon>bibliotecaDataSet4.xsd</DependentUpon>
     </None>
     <None Include="Models\DB.edmx.diagram">
       <DependentUpon>DB.edmx</DependentUpon>

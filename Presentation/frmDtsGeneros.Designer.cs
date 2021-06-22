@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDtsGeneros));
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.txtGenero = new MaterialSkin.Controls.MaterialTextBox();
             this.txtClave = new MaterialSkin.Controls.MaterialTextBox();
             this.btnGuardar = new MaterialSkin.Controls.MaterialButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -74,6 +78,7 @@
             this.txtGenero.TabIndex = 2;
             this.txtGenero.Text = "";
             this.txtGenero.TrailingIcon = null;
+            this.txtGenero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCaracter_KeyPress);
             // 
             // txtClave
             // 
@@ -90,6 +95,7 @@
             this.txtClave.TabIndex = 3;
             this.txtClave.Text = "";
             this.txtClave.TrailingIcon = null;
+            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCaracter_KeyPress);
             // 
             // btnGuardar
             // 
@@ -97,18 +103,22 @@
             this.btnGuardar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnGuardar.Depth = 0;
             this.btnGuardar.HighEmphasis = true;
-            this.btnGuardar.Icon = null;
+            this.btnGuardar.Icon = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Icon")));
             this.btnGuardar.Location = new System.Drawing.Point(260, 296);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(88, 36);
+            this.btnGuardar.Size = new System.Drawing.Size(116, 36);
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnGuardar.UseAccentColor = false;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmDtsGeneros
             // 
@@ -125,6 +135,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos de género";
             this.Load += new System.EventHandler(this.FrmDtsGeneros_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +148,6 @@
         private MaterialSkin.Controls.MaterialTextBox txtGenero;
         private MaterialSkin.Controls.MaterialTextBox txtClave;
         private MaterialSkin.Controls.MaterialButton btnGuardar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

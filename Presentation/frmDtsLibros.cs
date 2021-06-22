@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Biblioteca.Models;
 using MaterialSkin.Controls;
 using System.Data.Entity;
+using System.Globalization;
 
 namespace Biblioteca.Presentation
 {
@@ -19,7 +20,7 @@ namespace Biblioteca.Presentation
         //Generos gDB = null;
         public int? id;
 
-      //  int sDR = 1000, sCF = 2000, sRO = 3000, sDI = 4000, sIN = 5000, sSU = 6000;
+        //  int sDR = 1000, sCF = 2000, sRO = 3000, sDI = 4000, sIN = 5000, sSU = 6000;
         string claveLibro;
 
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
@@ -42,12 +43,23 @@ namespace Biblioteca.Presentation
 
         private void FrmDtsLibros_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bibliotecaDataSet3.Pasillos' Puede moverla o quitarla según sea necesario.
+            this.pasillosTableAdapter1.Fill(this.bibliotecaDataSet3.Pasillos);
+            // TODO: esta línea de código carga datos en la tabla 'bibliotecaDataSet4.Estados' Puede moverla o quitarla según sea necesario.
+            this.estadosTableAdapter.Fill(this.bibliotecaDataSet4.Estados);
             //TODO: esta línea de código carga datos en la tabla 'bibliotecaDataSet2.Pasillos' Puede moverla o quitarla según sea necesario.
             this.pasillosTableAdapter.Fill(this.bibliotecaDataSet2.Pasillos);
             // TODO: esta línea de código carga datos en la tabla 'bibliotecaDataSet2.Generos' Puede moverla o quitarla según sea necesario.
             this.generosTableAdapter.Fill(this.bibliotecaDataSet2.Generos);
             if (id != null)
-                cargarDatos();
+            {
+               // cargarDatos();
+                cmbGeneros.Enabled = false;
+                cmbPas.Enabled = false;
+                cmbEstado.Visible = false;
+                materialLabel1.Visible = false;
+                btnNoDisponible.Visible = true;
+            }
         }
 
         private void MaterialLabel2_Click(object sender, EventArgs e)
@@ -161,58 +173,111 @@ namespace Biblioteca.Presentation
             using (bibliotecaEntities db = new bibliotecaEntities())
             {
                 l = db.Libros.Find(id);
-                cmbGeneros.SelectedItem = l.ClaveGenero;
-                cmbPasillo.SelectedValue = l.ClavePasillo;
-                cmbEstado.SelectedItem = l.Estado;
+                cmbGeneros.SelectedValue = l.ClaveGenero;
+                cmbPas.SelectedValue = l.ClavePasillo;
+                cmbEstado.SelectedValue = l.Estado;
                 txtAutor.Text = l.Autor;
                 txtTitulo.Text = l.Titulo;
                 dtpFecha.Value = l.FechaPublicacion;
-                //cmbGeneros.DataSource = bibliotecaDataSet2.Tables["Generos"];
-                //cmbGeneros.DisplayMember = "Genero";
             }
 
         }
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
+            borrarErrorMsj();
+            if (validarCampos())
+            {
+                using (bibliotecaEntities db = new bibliotecaEntities())
+                {
+                    if (id == null) //no hay registros
+                    {
+                        Libros l = new Libros
+                        {
+                            Autor = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtAutor.Text),
+                            Titulo = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtTitulo.Text),
+                            ClaveGenero = cmbGeneros.SelectedValue.ToString().Trim(),
+                            Estado = cmbEstado.SelectedValue.ToString().Trim(),
+                            ClavePasillo = cmbprueba.SelectedValue.ToString(),
+                            FechaPublicacion = dtpFecha.Value,
+                            
+                            ClaveLibro = generarSecyClaveLibro(cmbGeneros.SelectedValue.ToString().Trim(),cmbPas.SelectedValue.ToString().Trim()),
+                        };
+                        db.Libros.Add(l);
+                    }
+                    else
+                    { //Si lo encuentra lo modifica
+                        var lb = db.Libros.Find(id);
+                        lb.Autor = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtAutor.Text);
+                        lb.Titulo = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtTitulo.Text);
+                       lb.ClavePasillo = cmbprueba.SelectedValue.ToString();
+                        lb.ClaveGenero = cmbGeneros.SelectedValue.ToString().Trim();  //**
+
+                        lb.Estado = cmbEstado.SelectedValue.ToString().Trim();
+                        lb.FechaPublicacion = dtpFecha.Value;
+
+
+                        db.Entry(lb).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    db.SaveChanges();
+                    this.Close();
+                }
+            }
+
+
+        }
+
+        private void PasillosBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnNoDisponible_Click(object sender, EventArgs e)
+        {
+            //
             using (bibliotecaEntities db = new bibliotecaEntities())
             {
-                if (id == null) //no hay registros
+                if (id != null) //si hay registros
                 {
-
-                    Libros l = new Libros
-                    {
-                        ClaveGenero = cmbGeneros.SelectedValue.ToString().Trim(),
-                        ClavePasillo = cmbPasillo.SelectedValue.ToString().Trim(),
-                        ClaveLibro = generarSecyClaveLibro(
-                            cmbGeneros.SelectedValue.ToString().Trim(),
-                            cmbPasillo.SelectedValue.ToString().Trim()),
-                        Estado = cmbEstado.SelectedItem.ToString(),
-                        Autor = txtAutor.Text,
-                        Titulo = txtTitulo.Text,
-                        FechaPublicacion = dtpFecha.Value,
-                    };
-                    db.Libros.Add(l);
-                }
-                else
-                { //Si lo encuentra lo modifica
                     var lb = db.Libros.Find(id);
-                    lb.Autor = txtAutor.Text;
-                    lb.Titulo = txtTitulo.Text;
-                    lb.ClavePasillo = cmbPasillo.SelectedValue.ToString().Trim();
-                    lb.ClaveGenero = cmbGeneros.SelectedValue.ToString().Trim();  //**
-
-                    lb.Estado = cmbEstado.SelectedItem.ToString();
-                    lb.FechaPublicacion = dtpFecha.Value;
-
+                    lb.Estado = "No Disponible";
                     db.Entry(lb).State = EntityState.Modified;
+                    db.SaveChanges();
+                    this.Close();
                 }
-                db.SaveChanges();
-                this.Close();
+
             }
 
         }
-    }
 
+
+        private bool validarCampos()
+        {
+            bool ok = true;
+            if (txtAutor.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtAutor, "Ingresar autor");
+            }
+
+            if (txtTitulo.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtTitulo, "Ingresar título");
+            }
+            return ok;
+        }
+
+        private void borrarErrorMsj()
+        {
+            errorProvider1.SetError(txtAutor, "");
+            errorProvider1.SetError(txtTitulo, "");
+
+
+        }
+
+
+    }
 
 
 }

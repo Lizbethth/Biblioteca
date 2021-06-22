@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using Biblioteca.Models;
 using System.Data.Entity;
+using System.Globalization;
 
 namespace Biblioteca.Presentation
 {
@@ -36,6 +37,35 @@ namespace Biblioteca.Presentation
             this.id = id;
             if (id != null)
                 cargarDatos();
+        }
+
+        private bool validarCampos()
+        {
+            bool ok = true;
+            if (txtNombre.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtNombre, "Ingresar nombre");
+
+            }
+            if (txtApPaterno.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtApPaterno, "Ingresar Apellido Paterno");
+            }
+            if (txtApMaterno.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtApMaterno, "Ingresar Apellido Materno");
+            }
+            return ok;
+        }
+
+        private void borrarErrorMsj()
+        {
+            errorProvider1.SetError(txtNombre, "");
+            errorProvider1.SetError(txtApPaterno, "");
+            errorProvider1.SetError(txtApMaterno, "");
         }
 
         private void Frm_Load(object sender, EventArgs e)
@@ -80,34 +110,34 @@ namespace Biblioteca.Presentation
         }
         private void Guardar_Click(object sender, EventArgs e)
         {
-            using (bibliotecaEntities db = new bibliotecaEntities())
+            borrarErrorMsj();
+            if (validarCampos())
             {
-
-                if (id == null)
+                using (bibliotecaEntities db = new bibliotecaEntities())
                 {
-                    Usuarios user = new Usuarios
+                    if (id == null)
                     {
-                       
-                       Nombre = txtNombre.Text,
-                        Apaterno = txtApPaterno.Text,
-                        Amaterno = txtApMaterno.Text,
-                        Fecha = DateTime.Now,
-                        Folio = generarFolio()
-                    };
-                    db.Usuarios.Add(user);
+                        Usuarios user = new Usuarios
+                        {
+                            Nombre = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtNombre.Text),
+                            Apaterno = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtApPaterno.Text),
+                            Amaterno = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(txtApMaterno.Text),
+                            Fecha = DateTime.Now,
+                            Folio = generarFolio()
+                        };
+                        db.Usuarios.Add(user);
+                    }
+                    else
+                    {
+                        var usuario = db.Usuarios.Find(id);
+                        usuario.Nombre = txtNombre.Text;
+                        usuario.Apaterno = txtApPaterno.Text;
+                        usuario.Amaterno = txtApMaterno.Text;
+                        db.Entry(usuario).State = EntityState.Modified;
+                    }
+                    db.SaveChanges();
+                    this.Close();
                 }
-                else
-                {
-                    var usuario = db.Usuarios.Find(id);
-                    usuario.Nombre = txtNombre.Text;
-                    usuario.Apaterno = txtApPaterno.Text;
-                    usuario.Amaterno = txtApMaterno.Text;
-                    db.Entry(usuario).State = EntityState.Modified;
-
-                }
-
-                db.SaveChanges();
-                this.Close();
             }
         }
 
@@ -135,13 +165,20 @@ namespace Biblioteca.Presentation
                 txtNombre.Text = user.Nombre;
                 txtApMaterno.Text = user.Amaterno;
                 txtApPaterno.Text = user.Apaterno;
-
             }
-
         }
 
+        private void txtCaracter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                //errorProvider1.SetError(txtNombre, "Solo se permiten letras");
+                //errorProvider1.SetError(txtApMaterno, "Solo se permiten letras");
+                //errorProvider1.SetError(txtApPaterno, "Solo se permiten letras");
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
     }
-
-
-
 }
