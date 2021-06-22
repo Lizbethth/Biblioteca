@@ -51,6 +51,7 @@
             this.bibliotecaDataSet2 = new Biblioteca.bibliotecaDataSet2();
             this.librosTableAdapter = new Biblioteca.bibliotecaDataSet2TableAdapters.LibrosTableAdapter();
             this.librosTableAdapter1 = new Biblioteca.bibliotecaDataSet3TableAdapters.LibrosTableAdapter();
+            this.librosBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -167,7 +169,7 @@
             this.tituloDataGridViewTextBoxColumn,
             this.fechaPublicacionDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn});
-            this.dtvLibros.DataSource = this.librosBindingSource1;
+            this.dtvLibros.DataSource = this.librosBindingSource2;
             this.dtvLibros.EnableHeadersVisualStyles = false;
             this.dtvLibros.Location = new System.Drawing.Point(5, 23);
             this.dtvLibros.MultiSelect = false;
@@ -277,6 +279,11 @@
             // 
             this.librosTableAdapter1.ClearBeforeFill = true;
             // 
+            // librosBindingSource2
+            // 
+            this.librosBindingSource2.DataMember = "Libros";
+            this.librosBindingSource2.DataSource = this.bibliotecaDataSet3;
+            // 
             // frmCRUDLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librosBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -322,5 +330,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPublicacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource librosBindingSource2;
     }
 }

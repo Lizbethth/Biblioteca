@@ -118,55 +118,38 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnEditar.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBuscar.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAU1JREFUOE9j
-        oCvYHpdkeS0y8vTtpKRrl4KCyqDCxIElvUUxcxau+LN/2vz/3/v7/9+Kj78GlSIMFs5ujVm+advvG8+/
-        /j907tb/XdMX/L8SEXEKKo0fHFzir7tyWf/7g0CNN4EGXH/25f/M+Sv+rktKs4EqwQ2OLAo2ub435+7/
-        d4v+Hzy08v+uE5f+z1+17ueqznw/qBLcAKT52t68OyDN/98t/v/39cL/y5b1vp0xu9UVqgQ3gGjORdF8
-        YWvq9f3zPRSgSnCDw0sDjMnXvAqkOec2WZq3zPALurgt8ydZmv8zMDDunh3+9OnZBrDmf28W/r+4Pe3m
-        /vnBGlAl+EFRik/4mVW5X+7vyfv/6FTN/7ObU39tmeptBZUmDOKj/C8Fh4b+P7Is6/vOWSHPtk4P8YFK
-        EQcCA33eJsT6XynP9otoaGhgggrTAzAwAAC0CuaScsavFgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAP9JREFUSEvd
+        lEuKwkAURTMUxIH4WU7jGkQQ9+FnIiqOXIxORDfhRHAXjuz2M9W+p0igEJNURQrBAwfqVV79yYu+lqac
+        yp08xtKeyIZ8i568yUeKF9mVhejIu2SilfyR1Vja9PGNnLb0gqP/SSYY05HCQJJzkjU6XJnLZOd5bCS5
+        MxM5cpAM4iryaEly9yZy5CoZVDZRNhVJ7tlEjgRfIPgVJY+8NlE2W0mu1yPX5a9kYJ+OFIaSHHIZ44X9
+        oy0l11WKtX80pGwUglKRPPgrKRVMnsQj6Y1d7KhL+Fzs7EW93sKVhbQXKXSSPNi5vUiQk3zPIvab0A4C
+        Ow+y+08RRf+tt2SdCvHf8AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnNuevo.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAOdJREFUSEvd
-        1U9qAjEYhvGBIvZygqBSoR5HupVCD1AXgot6Gwv+wfYGBaXQnfb5YAIf5HUShSz0gR8MJBmGyZCp7r42
-        Rlhgh5+aXX/gGTbnqvr4xinhCz1k94BXqJs1mcDWJnuDukEOe7DGulALcx3RgewROe88xfZEbvwQaoEX
-        UmPeAFFzqMleSI15M0RtoSZ7ITXmrRB1gJqcSq3ZI+oXanIqtcYeNmoDNdkLqTFPvqLim1z8M21hDbXg
-        EkucPZOKHhWhF6jFOcZIVvy4DhX74fjsVLSva4pP/NXs+h1PuPqXeQtV1T9JGBuAemWZtAAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="btnBorrar.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAM9JREFUOE+l
-        jUsOgkAQRDmacennNhCC3ICJcgQDircwrolrd4rGtbLwAjgljZ1I+a+kUpmaft0OU+QlA+MlhXUFR166
-        s+7J93tZ6GjcaUeejnHTru0O8mwrDhfr5tqnjsMsF/x2sdpuLl8ZjOD1gl8seC0U7BJzC4aaBY/JOqRg
-        KjaEZB1SMBUbQrIOKZiKDSFZhxRMxYaQrEMKpmJDSNYhBVOxISTrkIKpxsG8zFf7O/TM+bKo4iA7CaYy
-        fjq0HyW2v/JklJ2NP+sL9q8c5woB1QiLSXlSoAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="librosBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>178, 56</value>
-  </metadata>
-  <metadata name="bibliotecaDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>486, 17</value>
-  </metadata>
-  <metadata name="librosBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>640, 17</value>
-  </metadata>
   <metadata name="librosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>171, 17</value>
   </metadata>
-  <metadata name="bibliotecaDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bibliotecaDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="btnAceptar.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAYlJREFUSEvd
+        ldsqRFEYgCcJhaKc8gZ4Ag/iEO7QkJJXcbrnRm54ELlyKJR4AheIS75v2at2a2bvPTPlgq++Wod//Xvm
+        X2uvXfv39OEKnuMjvmTaPkPnerEjFvAZvyp8wjlsmW7cx5jgCndwBkcybTt2jTFuF11bySG64BM3sAuL
+        cM4YY13jDytlGQ38wFkHWsTY+JBFB5rhZllPg9YcaJN1dK05ehxI8ckGWPOysuQZRUskrol74gFp4BSd
+        3A69akzuj3HNpgPgxts/Cb2EB3RyKvTKmcR7NP4Ch1A8XY7dhV7CGzo5EHrFFCWXQXT8NfQS3tHJ/tD7
+        wfpaiki+LNZ7DPOUPiAt0RbaN6GJ88lvME0u0+i8/7CBdJNNEE+FiWPyWxzHZpRucrNjaiITOl6VvPKY
+        5l+0VQcyhvEy03YRlS+aLKFB6VUxkVlES1dF5AANdEEdy95q59q67MQrdw9doO6Jm+cJ8QOktju+riPz
+        +CsfnDz+Wmt6jJ4gS6G2j9C5jj+Zf4Fa7RtjzIxpgH6d7AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="bibliotecaDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="librosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>331, 17</value>
-  </metadata>
-  <metadata name="librosTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
   </metadata>
 </root>

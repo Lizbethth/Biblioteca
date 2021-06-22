@@ -25,7 +25,7 @@ namespace Biblioteca
             materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(
                 MaterialSkin.Primary.Indigo500,
                 MaterialSkin.Primary.Indigo700,
-                MaterialSkin.Primary.Indigo100, 
+                MaterialSkin.Primary.Indigo100,
                 MaterialSkin.Accent.Pink200,
                 MaterialSkin.TextShade.WHITE);
         }
@@ -48,9 +48,9 @@ namespace Biblioteca
         private void MaterialButton1_Click(object sender, EventArgs e)
 
         {
-          //  Presentation.frm jj = new Presentation.frm();
-           frmUsuarios ofrmUsuarios = new frmUsuarios();
-           ofrmUsuarios.ShowDialog();
+            //  Presentation.frm jj = new Presentation.frm();
+            frmUsuarios ofrmUsuarios = new frmUsuarios();
+            ofrmUsuarios.ShowDialog();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -66,7 +66,8 @@ namespace Biblioteca
 
         private void MaterialButton1_Click_1(object sender, EventArgs e)
         {
-
+            frmPrestamo ofrmPrestamo = new frmPrestamo();
+            ofrmPrestamo.ShowDialog();
         }
 
         private void BtnPasillos_Click_1(object sender, EventArgs e)
@@ -92,7 +93,8 @@ namespace Biblioteca
 
         private void MaterialButton2_Click(object sender, EventArgs e)
         {
-
+            frmDevolucion ofrmdevLibros = new frmDevolucion();
+            ofrmdevLibros.ShowDialog();
         }
 
         private void BtnLibros_Click(object sender, EventArgs e)

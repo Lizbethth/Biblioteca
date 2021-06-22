@@ -187,7 +187,38 @@ SELECT Id, ClaveGenero, ClavePasillo, ClaveLibro, Autor, Titulo, FechaPublicacio
               <Mapping SourceColumn="FechaPublicacion" DataSetColumn="FechaPublicacion" />
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="bibliotecaConnectionString1 (Settings)" DbObjectName="biblioteca.dbo.Libros" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByDisponible" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDisponible" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByDisponible">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Id, ClaveGenero, ClavePasillo, ClaveLibro, Autor, Titulo, FechaPublicacion, Estado
+FROM            Libros
+WHERE        (Estado = 'Disponible')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="bibliotecaConnectionString1 (Settings)" DbObjectName="biblioteca.dbo.Libros" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByPrestamo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPrestamo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByPrestamo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Id, ClaveGenero, ClavePasillo, ClaveLibro, Autor, Titulo, FechaPublicacion, Estado
+FROM            Libros
+WHERE        (Estado = 'En préstamo')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="bibliotecaConnectionString1 (Settings)" DbObjectName="biblioteca.dbo.Libros" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataPrestado" GetMethodModifier="Public" GetMethodName="GetDataPrestado" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataPrestado" UserSourceName="GetDataPrestado">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, ClaveGenero, ClavePasillo, ClaveLibro, Autor, Titulo, FechaPublicacion, Estado
+FROM            Libros
+WHERE        (Estado = 'En préstamo')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PasillosTableAdapter" GeneratorDataComponentClassName="PasillosTableAdapter" Name="Pasillos" UserDataComponentName="PasillosTableAdapter">
             <MainSource>
@@ -311,7 +342,7 @@ SELECT Id, Nombre, Apaterno, Amaterno, Fecha, Folio FROM Usuarios WHERE (Id = @I
   <xs:element name="bibliotecaDataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="bibliotecaDataSet3" msprop:Generator_UserDSName="bibliotecaDataSet3">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Folios" msprop:Generator_TableClassName="FoliosDataTable" msprop:Generator_TableVarName="tableFolios" msprop:Generator_TablePropName="Folios" msprop:Generator_RowDeletingName="FoliosRowDeleting" msprop:Generator_RowChangingName="FoliosRowChanging" msprop:Generator_RowEvHandlerName="FoliosRowChangeEventHandler" msprop:Generator_RowDeletedName="FoliosRowDeleted" msprop:Generator_UserTableName="Folios" msprop:Generator_RowChangedName="FoliosRowChanged" msprop:Generator_RowEvArgName="FoliosRowChangeEvent" msprop:Generator_RowClassName="FoliosRow">
+        <xs:element name="Folios" msprop:Generator_TableClassName="FoliosDataTable" msprop:Generator_TableVarName="tableFolios" msprop:Generator_RowChangedName="FoliosRowChanged" msprop:Generator_TablePropName="Folios" msprop:Generator_RowDeletingName="FoliosRowDeleting" msprop:Generator_RowChangingName="FoliosRowChanging" msprop:Generator_RowEvHandlerName="FoliosRowChangeEventHandler" msprop:Generator_RowDeletedName="FoliosRowDeleted" msprop:Generator_RowClassName="FoliosRow" msprop:Generator_UserTableName="Folios" msprop:Generator_RowEvArgName="FoliosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -320,7 +351,7 @@ SELECT Id, Nombre, Apaterno, Amaterno, Fecha, Folio FROM Usuarios WHERE (Id = @I
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Generos" msprop:Generator_TableClassName="GenerosDataTable" msprop:Generator_TableVarName="tableGeneros" msprop:Generator_TablePropName="Generos" msprop:Generator_RowDeletingName="GenerosRowDeleting" msprop:Generator_RowChangingName="GenerosRowChanging" msprop:Generator_RowEvHandlerName="GenerosRowChangeEventHandler" msprop:Generator_RowDeletedName="GenerosRowDeleted" msprop:Generator_UserTableName="Generos" msprop:Generator_RowChangedName="GenerosRowChanged" msprop:Generator_RowEvArgName="GenerosRowChangeEvent" msprop:Generator_RowClassName="GenerosRow">
+        <xs:element name="Generos" msprop:Generator_TableClassName="GenerosDataTable" msprop:Generator_TableVarName="tableGeneros" msprop:Generator_RowChangedName="GenerosRowChanged" msprop:Generator_TablePropName="Generos" msprop:Generator_RowDeletingName="GenerosRowDeleting" msprop:Generator_RowChangingName="GenerosRowChanging" msprop:Generator_RowEvHandlerName="GenerosRowChangeEventHandler" msprop:Generator_RowDeletedName="GenerosRowDeleted" msprop:Generator_RowClassName="GenerosRow" msprop:Generator_UserTableName="Generos" msprop:Generator_RowEvArgName="GenerosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -341,7 +372,7 @@ SELECT Id, Nombre, Apaterno, Amaterno, Fecha, Folio FROM Usuarios WHERE (Id = @I
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Libros" msprop:Generator_TableClassName="LibrosDataTable" msprop:Generator_TableVarName="tableLibros" msprop:Generator_TablePropName="Libros" msprop:Generator_RowDeletingName="LibrosRowDeleting" msprop:Generator_RowChangingName="LibrosRowChanging" msprop:Generator_RowEvHandlerName="LibrosRowChangeEventHandler" msprop:Generator_RowDeletedName="LibrosRowDeleted" msprop:Generator_UserTableName="Libros" msprop:Generator_RowChangedName="LibrosRowChanged" msprop:Generator_RowEvArgName="LibrosRowChangeEvent" msprop:Generator_RowClassName="LibrosRow">
+        <xs:element name="Libros" msprop:Generator_TableClassName="LibrosDataTable" msprop:Generator_TableVarName="tableLibros" msprop:Generator_RowChangedName="LibrosRowChanged" msprop:Generator_TablePropName="Libros" msprop:Generator_RowDeletingName="LibrosRowDeleting" msprop:Generator_RowChangingName="LibrosRowChanging" msprop:Generator_RowEvHandlerName="LibrosRowChangeEventHandler" msprop:Generator_RowDeletedName="LibrosRowDeleted" msprop:Generator_RowClassName="LibrosRow" msprop:Generator_UserTableName="Libros" msprop:Generator_RowEvArgName="LibrosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -391,7 +422,7 @@ SELECT Id, Nombre, Apaterno, Amaterno, Fecha, Folio FROM Usuarios WHERE (Id = @I
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pasillos" msprop:Generator_TableClassName="PasillosDataTable" msprop:Generator_TableVarName="tablePasillos" msprop:Generator_TablePropName="Pasillos" msprop:Generator_RowDeletingName="PasillosRowDeleting" msprop:Generator_RowChangingName="PasillosRowChanging" msprop:Generator_RowEvHandlerName="PasillosRowChangeEventHandler" msprop:Generator_RowDeletedName="PasillosRowDeleted" msprop:Generator_UserTableName="Pasillos" msprop:Generator_RowChangedName="PasillosRowChanged" msprop:Generator_RowEvArgName="PasillosRowChangeEvent" msprop:Generator_RowClassName="PasillosRow">
+        <xs:element name="Pasillos" msprop:Generator_TableClassName="PasillosDataTable" msprop:Generator_TableVarName="tablePasillos" msprop:Generator_RowChangedName="PasillosRowChanged" msprop:Generator_TablePropName="Pasillos" msprop:Generator_RowDeletingName="PasillosRowDeleting" msprop:Generator_RowChangingName="PasillosRowChanging" msprop:Generator_RowEvHandlerName="PasillosRowChangeEventHandler" msprop:Generator_RowDeletedName="PasillosRowDeleted" msprop:Generator_RowClassName="PasillosRow" msprop:Generator_UserTableName="Pasillos" msprop:Generator_RowEvArgName="PasillosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -405,7 +436,7 @@ SELECT Id, Nombre, Apaterno, Amaterno, Fecha, Folio FROM Usuarios WHERE (Id = @I
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent" msprop:Generator_RowClassName="UsuariosRow">
+        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

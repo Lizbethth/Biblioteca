@@ -16,10 +16,10 @@ namespace Biblioteca.Presentation
     public partial class frmDtsLibros : MaterialForm
     {
         Libros l = null;
-        Generos gDB = null;
+        //Generos gDB = null;
         public int? id;
 
-        int sDR = 1000, sCF = 2000, sRO = 3000, sDI = 4000, sIN = 5000, sSU = 6000;
+      //  int sDR = 1000, sCF = 2000, sRO = 3000, sDI = 4000, sIN = 5000, sSU = 6000;
         string claveLibro;
 
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
@@ -37,8 +37,7 @@ namespace Biblioteca.Presentation
                 MaterialSkin.Accent.Pink200,
                 MaterialSkin.TextShade.WHITE);
             this.id = id;
-            if (id != null)
-                cargarDatos();
+
         }
 
         private void FrmDtsLibros_Load(object sender, EventArgs e)
@@ -47,7 +46,8 @@ namespace Biblioteca.Presentation
             this.pasillosTableAdapter.Fill(this.bibliotecaDataSet2.Pasillos);
             // TODO: esta línea de código carga datos en la tabla 'bibliotecaDataSet2.Generos' Puede moverla o quitarla según sea necesario.
             this.generosTableAdapter.Fill(this.bibliotecaDataSet2.Generos);
-
+            if (id != null)
+                cargarDatos();
         }
 
         private void MaterialLabel2_Click(object sender, EventArgs e)
@@ -154,21 +154,21 @@ namespace Biblioteca.Presentation
             }
         }
 
-  
+
 
         private void cargarDatos()
         {
             using (bibliotecaEntities db = new bibliotecaEntities())
             {
                 l = db.Libros.Find(id);
-
-                //cmbGeneros.SelectedValue = l.ClaveGenero; //no lo trae
-                cmbGeneros.SelectedValue = l.ClaveGenero;
+                cmbGeneros.SelectedItem = l.ClaveGenero;
                 cmbPasillo.SelectedValue = l.ClavePasillo;
                 cmbEstado.SelectedItem = l.Estado;
                 txtAutor.Text = l.Autor;
                 txtTitulo.Text = l.Titulo;
                 dtpFecha.Value = l.FechaPublicacion;
+                //cmbGeneros.DataSource = bibliotecaDataSet2.Tables["Generos"];
+                //cmbGeneros.DisplayMember = "Genero";
             }
 
         }
@@ -199,15 +199,10 @@ namespace Biblioteca.Presentation
                     lb.Autor = txtAutor.Text;
                     lb.Titulo = txtTitulo.Text;
                     lb.ClavePasillo = cmbPasillo.SelectedValue.ToString().Trim();
-                    //lb.ClaveLibro = generarClaveLibro(
-                    //    cmbGeneros.SelectedValue.ToString(), cmbPasillo.SelectedValue.ToString());
                     lb.ClaveGenero = cmbGeneros.SelectedValue.ToString().Trim();  //**
-                    
+
                     lb.Estado = cmbEstado.SelectedItem.ToString();
                     lb.FechaPublicacion = dtpFecha.Value;
-
-                    //var gg = db.Generos.Find(id);
-                    //gg.Clave = cmbGeneros.SelectedItem.ToString();
 
                     db.Entry(lb).State = EntityState.Modified;
                 }
